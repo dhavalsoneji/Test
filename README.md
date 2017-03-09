@@ -17,19 +17,19 @@ https://console.firebase.google.com
 
 ![add new android app](/images/image_03.png?raw=true)
 
-<ul><li>Step 1</li></ul>
+<ul><li>Step 1<br>Copy SHA1 from your project</li></ul>
 
 ![](/images/image_04.png?raw=true)
 
-<ul><li>Step 2</li></ul>
+<ul><li>Step 2<br>Write your package name & SHA1</li></ul>
 
 ![](/images/image_05.png?raw=true)
 
-<ul><li>Step 3</li></ul>
+<ul><li>Step 3<br>download configuration file (named: “google-services.json”) and put into “app” folder of android studio project</li></ul>
 
 ![](/images/image_06.png?raw=true)
 
-<ul><li>Step 4</li></ul>
+<ul><li>Step 4<br>Add firebase SDK to your project</li></ul>
 
 ![](/images/image_07.png?raw=true)
 

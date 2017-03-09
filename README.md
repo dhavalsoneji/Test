@@ -35,20 +35,18 @@ FireBaseConfig.startChat(MainActivity.this);
 
 FireBaseConfig.java:
 
-    /*
-            you can find storage url from "firebase console --> storage"
-     */
-    public static final String STORAGE_URL = "gs://xyzabc.appspot.com";
+1) you can find storage url from "firebase console --> storage".
 
-      2)  /*
-       you can find auth key from "firebase console --> project settings --> cloud messaging --> server key"
-     */
-    public static final String FIREBASE_AUTH_KEY = "key=YOUR_SERVER_KEY";
+    <code>public static final String STORAGE_URL = "gs://xyzabc.appspot.com";</code>
+
+2) you can find auth key from "firebase console --> project settings --> cloud messaging --> server key".
+
+    <code>public static final String FIREBASE_AUTH_KEY = "key=YOUR_SERVER_KEY";</code>
+    
+you can find value from google-services.json file
+    1) Open google-services.json file -> client -> oauth_client -> client_id
+    2) Copy this client ID and hardcode this to below variable
     
 GoogleManager.java:
-
-//you can find value from google-services.json file
-    // 1) Open google-services.json file -> client -> oauth_client -> client_id
-    // 2) Copy this client ID and hardcode this to below variable
     
-private String requestIdToken = "YOUR_REQUEST_ID_TOKEN";
+    <code>private String requestIdToken = "YOUR_REQUEST_ID_TOKEN";</code>

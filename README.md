@@ -37,11 +37,15 @@ FireBaseConfig.java:
 
 1) you can find storage url from "firebase console --> storage".
 
-    <code>public static final String STORAGE_URL = "gs://xyzabc.appspot.com";</code>
+    ```java
+    public static final String STORAGE_URL = "gs://xyzabc.appspot.com";
+    ```
 
 2) you can find auth key from "firebase console --> project settings --> cloud messaging --> server key".
 
-    <code>public static final String FIREBASE_AUTH_KEY = "key=YOUR_SERVER_KEY";</code>
+    ```java
+    public static final String FIREBASE_AUTH_KEY = "key=YOUR_SERVER_KEY";</code>
+    ```
     
 you can find value from google-services.json file
     1) Open google-services.json file -> client -> oauth_client -> client_id
@@ -49,4 +53,6 @@ you can find value from google-services.json file
     
 GoogleManager.java:
     
-    <code>private String requestIdToken = "YOUR_REQUEST_ID_TOKEN";</code>
+    ```java
+    private String requestIdToken = "YOUR_REQUEST_ID_TOKEN";
+    ```

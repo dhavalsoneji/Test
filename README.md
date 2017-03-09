@@ -28,8 +28,3 @@ https://console.firebase.google.com
 <ul><li>Step 3<br>download configuration file (named: “google-services.json”) and put into “app” folder of android studio project</li></ul>
 
 ![](/images/image_06.png?raw=true)
-
-<ul><li>Step 4<br>Add firebase SDK to your project</li></ul>
-
-![](/images/image_07.png?raw=true)
-

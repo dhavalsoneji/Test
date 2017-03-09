@@ -28,3 +28,27 @@ https://console.firebase.google.com
 <ul><li>Step 3<br>download configuration file (named: “google-services.json”) and put into “app” folder of android studio project</li></ul>
 
 ![](/images/image_06.png?raw=true)
+
+# To start FireBase Quick Chat:
+
+FireBaseConfig.startChat(MainActivity.this);
+
+FireBaseConfig.java:
+
+    /*
+            you can find storage url from "firebase console --> storage"
+     */
+    public static final String STORAGE_URL = "gs://xyzabc.appspot.com";
+
+      2)  /*
+       you can find auth key from "firebase console --> project settings --> cloud messaging --> server key"
+     */
+    public static final String FIREBASE_AUTH_KEY = "key=YOUR_SERVER_KEY";
+    
+GoogleManager.java:
+
+//you can find value from google-services.json file
+    // 1) Open google-services.json file -> client -> oauth_client -> client_id
+    // 2) Copy this client ID and hardcode this to below variable
+    
+private String requestIdToken = "YOUR_REQUEST_ID_TOKEN";

@@ -31,7 +31,8 @@ Test
 
 <h4>Add this three meta-data tag to your AndroidManifest.xml file.</h4>
 
-1) you can find storage url from "firebase console --> storage".
+1) Storage url: 
+   you can find storage url from "firebase console --> storage".
 
     ```xml
     <meta-data
@@ -39,7 +40,8 @@ Test
             android:value="YOUR_STORAGE_URL" />
     ```
 
-2) you can find auth key from "firebase console --> project settings --> cloud messaging --> server key".
+2) Server key:
+   you can find auth key from "firebase console --> project settings --> cloud messaging --> server key".
 
     ```xml
     <meta-data
@@ -47,7 +49,8 @@ Test
             android:value="YOUR_SERVER_KEY" />
     ```
     
-3) You can find value from google-services.json file<br>
+3) Request id token:
+   You can find value from google-services.json file<br>
     a) Open google-services.json file -> client -> oauth_client -> client_id<br>
     b) Copy this client ID and hardcode this to below meta-data tag<br>
     

@@ -54,8 +54,6 @@ Test
     a) Open google-services.json file -> client -> oauth_client -> client_id<br>
     b) Copy this client ID and hardcode this to below meta-data tag<br>
     
-    GoogleManager.java:
-    
     ```xml
     <meta-data
             android:name="request_id_token"

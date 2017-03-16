@@ -62,7 +62,7 @@ Test
     
 # Login with google
 
-    ```java
+    ```android
     private FQCLogin mFqcLogin;
     
     //.......

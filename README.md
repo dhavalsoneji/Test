@@ -31,6 +31,8 @@ https://console.firebase.google.com
 
 # Configuration:
 
+<h4>Add this three meta-data tag to your AndroidManifest.xml file.</h4>
+
 1) you can find storage url from "firebase console --> storage".
 
     ```xml

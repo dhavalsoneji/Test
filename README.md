@@ -1,9 +1,7 @@
 # Test
 Test
 
-<h4><a href="https://console.firebase.google.com" target="_blank">Firebase console</a></h4><br>
-
-<h5>Creating a new project by click <a href="https://console.firebase.google.com" target="_blank">here</a> & follow below steps:</h5>
+<h5>Creating a new project by click <a href="https://console.firebase.google.com" target="_blank" alt="Firebase console">here</a> & follow below steps:</h5>
 
 <ul><li>Click in “Create new project”</li></ul>
 

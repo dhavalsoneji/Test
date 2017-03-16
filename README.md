@@ -58,3 +58,33 @@ Test
             android:name="request_id_token"
             android:value="YOUR_REQUEST_ID_TOKEN" />
     ```
+    
+    
+# Login with google
+
+    ```java
+   private FQCLogin mFqcLogin;
+   
+   //.......
+   
+   mFqcLogin = new FQCLogin(fragmentActivity);
+   
+   //.......
+   
+   mFqcLogin.loginWithGoogle(new FQCLoginListener() {
+            @Override
+            public void onStart() {
+                // write your code 
+            }
+
+            @Override
+            public void onComplete() {
+                // write your code 
+            }
+
+            @Override
+            public void onException(Exception e) {
+                // write your code 
+            }
+        });
+   ```

@@ -59,19 +59,6 @@ Test
             android:value="YOUR_REQUEST_ID_TOKEN" />
     ```
     
-    
-# Login with google
-
-   Define object variable of <a href="https://github.com/dhavalsoneji/Test/blob/master/java/FQCLogin.java">FQCLogin.java</a> class:
-   ```java
-   private FQCLogin mFqcLogin;
-   ```
-
-   Create constructor of FQCLogin by passing FragmentActivity object:
-   ```java
-   mFqcLogin = new FQCLogin(fragmentActivity);
-   ```
-   
 # Check firebase login
    
    Calling startChat method of <a href="https://github.com/dhavalsoneji/Test/blob/master/java/FQCConfig.java">FQCConfig.java</a> class
@@ -92,7 +79,18 @@ Test
         }
    });
 ```     
-    
+# Login with google
+
+   Define object variable of <a href="https://github.com/dhavalsoneji/Test/blob/master/java/FQCLogin.java">FQCLogin.java</a> class:
+   ```java
+   private FQCLogin mFqcLogin;
+   ```
+
+   Create constructor of FQCLogin by passing FragmentActivity object:
+   ```java
+   mFqcLogin = new FQCLogin(fragmentActivity);
+   ```
+   
    Calling loginWithGoogle method to login with google:
    ```java
    mFqcLogin.loginWithGoogle(new FQCLoginListener() {

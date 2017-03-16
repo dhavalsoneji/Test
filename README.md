@@ -64,7 +64,7 @@ Test
 
    Define object variable of <a href="https://github.com/dhavalsoneji/Test/blob/master/java/FQCLogin.java">FQCLogin.java</a> class:
    ```java
-   pivate FQCLogin mFqcLogin;
+   private FQCLogin mFqcLogin;
    ```
 
    Create constructor of FQCLogin by passing FragmentActivity object:

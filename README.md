@@ -62,16 +62,19 @@ Test
     
 # Login with google
 
-    ```java
-    pivate FQCLogin mFqcLogin;
+   Define object variable of <a href="https://github.com/dhavalsoneji/Test/blob/master/java/FQCLogin.java">FQCLogin.java</a> class:
+   ```java
+   pivate FQCLogin mFqcLogin;
+   ```
+
+   Create constructor of FQCLogin by passing FragmentActivity object:
+   ```java
+   mFqcLogin = new FQCLogin(fragmentActivity);
+   ```
     
-    //.......
-    
-    mFqcLogin = new FQCLogin(fragmentActivity);
-    
-    //.......
-    
-    mFqcLogin.loginWithGoogle(new FQCLoginListener() {
+   Calling loginWithGoogle method to login with google:
+   ```java
+   mFqcLogin.loginWithGoogle(new FQCLoginListener() {
             @Override
             public void onStart() {
                 // write your code 

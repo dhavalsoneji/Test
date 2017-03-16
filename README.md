@@ -29,30 +29,32 @@ https://console.firebase.google.com
 
 ![](/images/image_06.png?raw=true)
 
-# To start FireBase Quick Chat:
-
-FireBaseConfig.startChat(MainActivity.this);
-
-FireBaseConfig.java:
+# Configuration:
 
 1) you can find storage url from "firebase console --> storage".
 
-    ```
-    public static final String STORAGE_URL = "gs://xyzabc.appspot.com";
+    ```xml
+    <meta-data
+            android:name="storage_url"
+            android:value="YOUR_STORAGE_URL" />
     ```
 
 2) you can find auth key from "firebase console --> project settings --> cloud messaging --> server key".
 
-    ```
-    public static final String FIREBASE_AUTH_KEY = "key=YOUR_SERVER_KEY";</code>
+    ```xml
+    <meta-data
+            android:name="server_key"
+            android:value="YOUR_SERVER_KEY" />
     ```
     
-you can find value from google-services.json file
-    1) Open google-services.json file -> client -> oauth_client -> client_id
-    2) Copy this client ID and hardcode this to below variable
+3) You can find value from google-services.json file
+    a) Open google-services.json file -> client -> oauth_client -> client_id
+    b) Copy this client ID and hardcode this to below variable
     
-GoogleManager.java:
+    GoogleManager.java:
     
-    ```
-    private String requestIdToken = "YOUR_REQUEST_ID_TOKEN";
+    ```xml
+    <meta-data
+            android:name="request_id_token"
+            android:value="YOUR_REQUEST_ID_TOKEN" />
     ```

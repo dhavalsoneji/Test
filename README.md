@@ -62,8 +62,8 @@ Test
     
 # Login with google
 
-    ```android
-    private FQCLogin mFqcLogin;
+    ```java
+    pivate FQCLogin mFqcLogin;
     
     //.......
     

@@ -49,9 +49,9 @@ https://console.firebase.google.com
             android:value="YOUR_SERVER_KEY" />
     ```
     
-3) You can find value from google-services.json file
-    a) Open google-services.json file -> client -> oauth_client -> client_id
-    b) Copy this client ID and hardcode this to below variable
+3) You can find value from google-services.json file<br>
+    a) Open google-services.json file -> client -> oauth_client -> client_id<br>
+    b) Copy this client ID and hardcode this to below meta-data tag<br>
     
     GoogleManager.java:
     

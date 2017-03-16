@@ -71,6 +71,27 @@ Test
    ```java
    mFqcLogin = new FQCLogin(fragmentActivity);
    ```
+   
+# Check firebase login
+   
+   Calling startChat method of <a href="https://github.com/dhavalsoneji/Test/blob/master/java/FQCConfig.java">FQCConfig.java</a> class
+   
+   ```java
+   FQCConfig.startChat(MainActivity.this, new FQCStartChatListener() {
+        @Override
+        public void loginRequire() {
+            // write your code that redirect to login activity
+        }
+        @Override
+        public void homeRequire() {
+            // write your code that redirect to home activity
+        }
+        @Override
+        public void onException(Exception e) {
+            // write your code
+        }
+   });
+```     
     
    Calling loginWithGoogle method to login with google:
    ```java
@@ -90,24 +111,4 @@ Test
                 // write your code 
             }
         });
-   ```
-   # Check firebase login
-   
-   Calling startChat method of <a href="https://github.com/dhavalsoneji/Test/blob/master/java/FQCConfig.java">FQCConfig.java</a> class
-   
-   ```java
-   FQCConfig.startChat(MainActivity.this, new FQCStartChatListener() {
-        @Override
-        public void loginRequire() {
-            // write your code that redirect to login activity
-        }
-        @Override
-        public void homeRequire() {
-            // write your code that redirect to home activity
-        }
-        @Override
-        public void onException(Exception e) {
-            // write your code
-        }
-   });
-```                
+   ```               

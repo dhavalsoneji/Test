@@ -63,15 +63,15 @@ Test
 # Login with google
 
     ```java
-   private FQCLogin mFqcLogin;
-   
-   //.......
-   
-   mFqcLogin = new FQCLogin(fragmentActivity);
-   
-   //.......
-   
-   mFqcLogin.loginWithGoogle(new FQCLoginListener() {
+    private FQCLogin mFqcLogin;
+    
+    //.......
+    
+    mFqcLogin = new FQCLogin(fragmentActivity);
+    
+    //.......
+    
+    mFqcLogin.loginWithGoogle(new FQCLoginListener() {
             @Override
             public void onStart() {
                 // write your code 

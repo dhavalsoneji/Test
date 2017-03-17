@@ -110,4 +110,11 @@ Test
                 // write your code 
             }
         });
-   ```               
+   ```
+   add below lines of code in Activity onActivityResult() method:
+   
+   ```java
+   if (mFqcLogin != null) {
+       mFqcLogin.onActivityResult(requestCode, resultCode, data);
+   }
+   ```

@@ -47,6 +47,9 @@ public class FQCLogin {
         mGoogleManager = new GoogleManager(mActivity, mSocialConnectionListener);
     }
 
+    /**
+     * @param listener
+     */
     public void loginWithGoogle(FQCLoginListener listener) {
         mListener = listener;
         mGoogleManager.initGoogle();
@@ -74,12 +77,16 @@ public class FQCLogin {
         }
     };
 
-    private void authWithGoogle(GoogleSignInAccount acct) {
-        mGoogleSignInAccount = acct;
+    /**
+     * @param googleSignInAccount
+     */
+    private void authWithGoogle(GoogleSignInAccount googleSignInAccount) {
+        mGoogleSignInAccount = googleSignInAccount;
         if (mGoogleSignInAccount != null) {
 
             try {
-                AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+                AuthCredential credential = GoogleAuthProvider.getCredential
+                        (googleSignInAccount.getIdToken(), null);
 
                 FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
@@ -92,41 +99,38 @@ public class FQCLogin {
                                     } else {
                                         UserTable userTable = new UserTable();
                                         userTable.setEmail(mGoogleSignInAccount.getEmail());
-                                        userTable.setLoginProvider(AppConstants.PROVIDER_GMAIL);
                                         userTable.setName(mGoogleSignInAccount.getDisplayName().toLowerCase());
                                         userTable.setUId(FirebaseAuth.getInstance().getCurrentUser().getUid());
                                         userTable.setPhotoUrl(FirebaseAuth.getInstance().getCurrentUser()
                                                 .getPhotoUrl().toString());
                                         userTable.setStatus(AppConstants.STATUS_ONLINE);
-                                        userTable.setIsAdmin(AppConstants.VAL_FALSE);
                                         userTable.setDeviceToken(FirebaseInstanceId.getInstance().getToken());
                                         Map<String, String> deviceTokens = new HashMap<>();
                                         deviceTokens.put("token1", FirebaseInstanceId.getInstance().getToken());
                                         userTable.setDeviceTokens(deviceTokens);
 
-                                        FireBaseUtils.insertUserIntoDatabase(userTable,
-                                                FireBaseReference.getUserTableReference(), new OnUserInsertListener() {
+                                        FireBaseUtils.insertUserIntoDatabase(userTable, FireBaseReference.getUserTableReference(), new OnUserInsertListener() {
 
-                                                    @Override
-                                                    public void onComplete(UserTable userTable, boolean isNew) {
-                                                        if (isNew) {
+                                            @Override
+                                            public void onComplete(UserTable userTable, boolean isNew) {
+                                                if (isNew) {
 
-                                                        }
-                                                        FireBaseUtils.subscribeToApp();
-                                                        PreferanceUtils.setCurrentUser(mActivity, userTable);
-                                                        PreferanceUtils.setIsSign(mActivity, true);
-                                                        PreferanceUtils.setSignInMethod(mActivity,
-                                                                AppConstants.SIGNIN_TYPE_GOOGLE);
-                                                        mListener.onComplete();
-                                                    }
+                                                }
+                                                FireBaseUtils.subscribeToApp();
+                                                PreferanceUtils.setCurrentUser(mActivity, userTable);
+                                                PreferanceUtils.setIsSign(mActivity, true);
+                                                PreferanceUtils.setSignInMethod(mActivity,
+                                                        AppConstants.SIGNIN_TYPE_GOOGLE);
+                                                mListener.onComplete();
+                                            }
 
-                                                    @Override
-                                                    public void onInComplete(Exception e) {
-                                                        mListener.onException(e);
-                                                        AlertDialogUtils.showToast(mActivity, mActivity.getResources()
-                                                                .getString(R.string.error_sign_in_with_google));
-                                                    }
-                                                });
+                                            @Override
+                                            public void onInComplete(Exception e) {
+                                                mListener.onException(e);
+                                                AlertDialogUtils.showToast(mActivity, mActivity.getResources()
+                                                        .getString(R.string.error_sign_in_with_google));
+                                            }
+                                        });
                                     }
                                 } catch (Exception e) {
                                     mListener.onException(e);

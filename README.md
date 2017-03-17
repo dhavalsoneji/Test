@@ -111,7 +111,7 @@ Test
             }
         });
    ```
-   add below lines of code in Activity onActivityResult() method:
+   add below lines of code, contains a) requestCode, b) resultCode, c) data parameters:
    
    ```java
    if (mFqcLogin != null) {

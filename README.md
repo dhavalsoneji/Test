@@ -120,3 +120,39 @@ Test
        mFqcLogin.onActivityResult(requestCode, resultCode, data);
    }
    ```
+   
+   # Retrieve contact list
+   
+   Define object variable of <a href="https://github.com/dhavalsoneji/Test/blob/master/java/FQCContacts.java">FQCContacts.java</a> class:
+   
+   ```
+   private FQCContacts mFqcContacts;
+   ```
+   
+   Create constructor of FQCContacts by passing Context:
+   
+   ```
+   mFqcContacts = new FQCContacts(mFragment.getActivity());
+   ```
+   
+   Retrieve a contact list by calling fetchContacts method of FQCContacts class:
+   
+   ```
+   mFqcContacts.fetchContacts(new DBQueryHandler.OnQueryHandlerListener<List<UserTable>>() {
+            @Override
+            public void onStart() {
+                //you can show progressBar code or something else
+            }
+
+            @Override
+            public void onComplete(List<UserTable> list) {
+                //you can get list of Contacts from here
+            }
+
+            @Override
+            public void onException(Exception e) {
+                //write your code to handle exception
+            }
+        });
+   ```
+        

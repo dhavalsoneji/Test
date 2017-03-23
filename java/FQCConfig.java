@@ -1,6 +1,5 @@
 package com.riontech.firebasequickchat.kit;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -26,22 +25,22 @@ public class FQCConfig {
     private static FirebaseAuth.AuthStateListener mAuthListener;
 
     /**
-     * @param activity - for use to fetch applicationInfo & used as Context
+     * @param context - for use to fetch applicationInfo & used as Context
      * @param listener - this listener used to indicate login result in either
      *                 a) loginRequire() - indicate user is not logged In, developer can redirect to login screen
      *                 b) homeRequire() - indicate user is logged In, developer can redirect to home screen
      *                 c) onException() - handle exception
      */
-    public static void startChat(final Activity activity, final FQCStartChatListener listener) {
+    public static void initializeLibrary(final Context context, final DBQueryHandler.OnInitializeLibraryListener listener) {
         try {
 
-            ApplicationInfo applicationInfo = activity.getPackageManager().getApplicationInfo
-                    (activity.getPackageName(), PackageManager.GET_META_DATA);
+            ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo
+                    (context.getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = applicationInfo.metaData;
             String storageUrl = bundle.getString("storage_url");
             String serverKey = bundle.getString("server_key");
             String requestIdToken = bundle.getString("request_id_token");
-            configureChat(activity, storageUrl, serverKey, requestIdToken);
+            configureChat(context, storageUrl, serverKey, requestIdToken);
 
         } catch (PackageManager.NameNotFoundException e) {
 
@@ -59,8 +58,8 @@ public class FQCConfig {
             return;
         }
 
-        if (PreferanceUtils.getIsConfig(activity)) {
-            if (ConnectivityUtils.checkInternetConnection(activity)) {
+        if (PreferanceUtils.getIsConfig(context)) {
+            if (ConnectivityUtils.checkInternetConnection(context)) {
                 try {
                     mAuth = FirebaseAuth.getInstance();
                     mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -115,5 +114,9 @@ public class FQCConfig {
             PreferanceUtils.setConfiguration(context, new Configs(storageUrl.trim(), serverKey.trim(),
                     requestIdToken.trim()));
         }
+    }
+
+    public static void signOut(){
+        FirebaseAuth.getInstance().signOut();
     }
 }

@@ -18,7 +18,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.riontech.firebasequickchat.R;
 import com.riontech.firebasequickchat.custom.GoogleManager;
-import com.riontech.firebasequickchat.listener.FQCLoginListener;
 import com.riontech.firebasequickchat.listener.OnUserInsertListener;
 import com.riontech.firebasequickchat.listener.SocialConnectionListener;
 import com.riontech.firebasequickchat.model.UserTable;
@@ -39,7 +38,7 @@ public class FQCLogin {
     private static final String TAG = FQCLogin.class.getSimpleName();
     private FragmentActivity mActivity;
     private GoogleManager mGoogleManager;
-    private FQCLoginListener mListener;
+    private DBQueryHandler.OnLoginListener mListener;
     private GoogleSignInAccount mGoogleSignInAccount;
 
     public FQCLogin(FragmentActivity activity) {
@@ -50,7 +49,7 @@ public class FQCLogin {
     /**
      * @param listener
      */
-    public void loginWithGoogle(FQCLoginListener listener) {
+    public void loginWithGoogle(DBQueryHandler.OnLoginListener listener) {
         mListener = listener;
         mGoogleManager.initGoogle();
     }
@@ -58,7 +57,7 @@ public class FQCLogin {
     private SocialConnectionListener mSocialConnectionListener = new SocialConnectionListener() {
         @Override
         public void onSuccessGoogle(GoogleSignInAccount loginResult) {
-            mListener.onStart();
+            mListener.onRequest();
             authWithGoogle(loginResult);
         }
 
@@ -121,7 +120,7 @@ public class FQCLogin {
                                                 PreferanceUtils.setIsSign(mActivity, true);
                                                 PreferanceUtils.setSignInMethod(mActivity,
                                                         AppConstants.SIGNIN_TYPE_GOOGLE);
-                                                mListener.onComplete();
+                                                mListener.onResponse();
                                             }
 
                                             @Override

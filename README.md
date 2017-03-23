@@ -125,19 +125,19 @@ Test
    
    Define object variable of <a href="https://github.com/dhavalsoneji/Test/blob/master/java/FQCContacts.java">FQCContacts.java</a> class:
    
-   ```
+   ```java
    private FQCContacts mFqcContacts;
    ```
    
    Create constructor of FQCContacts by passing Context:
    
-   ```
+   ```java
    mFqcContacts = new FQCContacts(mFragment.getActivity());
    ```
    
    Retrieve a contact list by calling fetchContacts method of FQCContacts class:
    
-   ```
+   ```java
    mFqcContacts.fetchContacts(new DBQueryHandler.OnQueryHandlerListener<List<UserTable>>() {
             @Override
             public void onStart() {

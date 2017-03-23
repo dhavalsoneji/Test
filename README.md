@@ -65,20 +65,22 @@ Test
    Calling startChat method of <a href="https://github.com/dhavalsoneji/Test/blob/master/java/FQCConfig.java">FQCConfig.java</a> class
    
    ```java
-   FQCConfig.startChat(MainActivity.this, new FQCStartChatListener() {
-        @Override
-        public void loginRequire() {
-            // write your code that redirect to login activity
-        }
-        @Override
-        public void homeRequire() {
-            // write your code that redirect to home activity
-        }
-        @Override
-        public void onException(Exception e) {
-            // write your code
-        }
-   });
+   FQCConfig.initializeLibrary(MainActivity.this, new DBQueryHandler.OnInitializeLibraryListener() {
+                    @Override
+                    public void loginRequire() {
+                        // write your code that redirect to login activity
+                    }
+
+                    @Override
+                    public void homeRequire() {
+                        // write your code that redirect to home activity
+                    }
+
+                    @Override
+                    public void onException(Exception e) {
+                        // write your code
+                    }
+                });
 ```     
 # Login with google
 
@@ -89,19 +91,19 @@ Test
 
    Create constructor of FQCLogin by passing FragmentActivity object:
    ```java
-   mFqcLogin = new FQCLogin(fragmentActivity);
+   mFqcLogin = new FQCLogin(LoginActivity.this);
    ```
    
    Calling loginWithGoogle method to login with google:
    ```java
-   mFqcLogin.loginWithGoogle(new FQCLoginListener() {
+   mFqcLogin.loginWithGoogle(new DBQueryHandler.OnLoginListener() {
             @Override
-            public void onStart() {
+            public void onRequest() {
                 // write your code 
             }
 
             @Override
-            public void onComplete() {
+            public void onResponse() {
                 // write your code 
             }
 
